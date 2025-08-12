@@ -9,7 +9,7 @@ authors = [
     {name = "Markus Binsteiner", email = "markus@frkl.dev"}
 ]
 readme = "README.md"
-requires-python = ">=3.9,<4.0"
+requires-python = ">=3.9,<3.13"
 keywords = []
 license = {text = "Apache-2.0"}
 classifiers = [
