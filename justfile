@@ -14,8 +14,4 @@ tests:
     uv run pytest tests -s
 
 test pattern:
-    uv run pytest tests -s -k 
-
-
-
-
+    uv run pytest tests -s -k
