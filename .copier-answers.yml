@@ -1,0 +1,11 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+_commit: 02137a7
+_src_path: python-template/
+anaconda_user: freckles
+email: markus@frkl.dev
+full_name: Markus Binsteiner
+github_user: makkus
+project_license: Apache-2.0
+project_name: lictool_test
+project_short_description: Python project to test pre-commit issues with ruff and
+    lictool

@@ -1,0 +1,9 @@
+{
+  "author": {
+    "from_git": true
+  },
+  "license": "Apache-2.0",
+    "include": [
+    "src/**/*.py"
+  ]
+}

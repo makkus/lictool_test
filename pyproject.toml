@@ -1,0 +1,101 @@
+[build-system]
+requires = ["hatchling", "uv-dynamic-versioning"]
+build-backend = "hatchling.build"
+
+[project]
+name = "lictool_test"
+description = "Python project to test pre-commit issues with ruff and lictool"
+authors = [
+    {name = "Markus Binsteiner", email = "markus@frkl.dev"}
+]
+readme = "README.md"
+requires-python = ">=3.9,<4.0"
+keywords = []
+license = {text = "Apache-2.0"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13"
+]
+dependencies = [
+]
+dynamic = ["version"]
+
+
+[project.optional-dependencies]
+
+[dependency-groups]
+dev = [
+    "devtools",
+    "icecream",
+    "pre-commit",
+    "rich",
+    "ruff",
+    "snoop",
+    "ty",
+    "wat"
+]
+
+[project.urls]
+homepage = "https://github.com/makkus/lictool_test"
+documentation = "https://makkus.github.io/lictool_test"
+repository = "https://github.com/makkus/lictool_test"
+
+[tool.hatch.version]
+source = "uv-dynamic-versioning"
+fallback-version = "0.0.0"
+
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/lictool_test"]
+
+[tool.hatch.build.hooks.version]
+path = "src/lictool_test/_version.py"
+template = '''# -*- coding: utf-8 -*-
+
+version = "{version}"
+'''
+
+[tool.ruff]
+line-length = 88
+
+src = ["src", "tests"]
+
+fix = true
+
+# Assume Python 3.10.
+target-version = "py310"
+
+[tool.ruff.lint]
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[tool.ruff.lint.isort]
+known-first-party = ["lictool_test"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.pixi.project]
+channels = ["conda-forge"]
+platforms = ["linux-64", "win-64", "osx-64", "osx-arm64"]
+
+[tool.pixi.dependencies]
+pip = ">=25.0"
+
+[tool.pixi.pypi-dependencies]
+"lictool_test" = { path = ".", editable = true }
+
+[tool.pixi.feature.dev_utils.pypi-dependencies]
+"" = { path = ".", editable = true, extras = ["dev"] }
+
+[tool.pixi.environments]
+default = { solve-group = "default" }
+dev = { features = ["dev"] }  # should be the same solve-group, but that doesn't seem to work with pixi currently
+
