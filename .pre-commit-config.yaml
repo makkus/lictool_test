@@ -16,14 +16,14 @@ repos:
       stages: [commit-msg]
       additional_dependencies: ['@commitlint/config-conventional']
 
-#- repo: https://github.com/astral-sh/ruff-pre-commit
-#  # Ruff version.
-#  rev: v0.8.3
-#  hooks:
-#    - id: ruff
-#      args: [ --fix ]
-#    # Run the formatter.
-#    - id: ruff-format
+- repo: https://github.com/astral-sh/ruff-pre-commit
+  # Ruff version.
+  rev: v0.8.3
+  hooks:
+    - id: ruff
+      args: [ --fix ]
+    # Run the formatter.
+    - id: ruff-format
 
 - repo: local
   hooks:
@@ -58,8 +58,8 @@ repos:
   - id: check-yaml
     exclude: '(tests/\*|ci/conda/kiara/meta.yaml)'
   - id: debug-statements
-#  - id: end-of-file-fixer
-#    exclude: '(.*.json|.*.j2)'
+  - id: end-of-file-fixer
+    exclude: '(.*.json|.*.j2)'
   - id: requirements-txt-fixer
   - id: mixed-line-ending
     args: ['--fix=no']
